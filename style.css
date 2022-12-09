@@ -24,8 +24,9 @@ header {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 2.5rem;
-  margin-left: 2.5rem;
+  padding-top: 2.5rem;
+  padding-left: 2.5rem;
+  gap: 2rem;
 }
 
 header h1 {
@@ -44,7 +45,7 @@ main {
 .Encriptado {
   display: flex;
   flex-direction: column;
-  margin: 5rem 2.5rem 4.5rem 15rem;
+  padding: 5rem 2.5rem 4.5rem 5rem;
 }
 
 .Desencriptado {
@@ -52,37 +53,51 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   margin: 2.5rem;
+  width: 30%;
   padding: 2rem;
   background: white;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
   border-radius: 32px;
 }
-textarea{
+
+
+textarea {
   border-style: none;
   outline: none;
   resize: none;
+  overflow: auto;
 }
-.inputTexto{
+
+.inputTexto {
   background: none;
   color: var(--azulOscuro);
   font-size: 2rem;
 }
-.mensaje{
+
+.mensaje {
   background-color: none;
   background-image: url("/Imagen/Muñeco.png");
   background-repeat: no-repeat;
-  background-size: 21rem;
-  background-position: center;
+  background-size: 70%;
+  background-position: top 50% left 50%;
   width: 100%;
   height: 100%;
   font-size: 1.5rem;
 }
-.mensaje::placeholder {
-  color: var(--textoNormal );
+
+.Desencriptado h2 {
+  color: var(--textoNormal);
+  text-align: center;
+  font-weight: 600;
+}
+
+.textoAyudaDesencriptado {
+  padding: 1rem;
+  color: var(--textoNormal);
   text-align: center;
 }
+
 .advertencia {
   display: flex;
   flex-direction: row;
@@ -99,26 +114,59 @@ textarea{
 .iconoExclamacion {
   padding: 0.25rem;
 }
-.botones{
+
+.botones {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
-.botonEncriptar{
+
+.botonEncriptar {
   color: white;
   background-color: var(--azulOscuro);
 }
-.botonDesencriptar{
-  color: var(--azulOscuro);
-  background-color: var(--grisClaro);
+
+.botonEncriptar:hover {
+  background-color: #072B61;
 }
-.botonCopiar{
+
+.botonEncriptar:active {
+  font-weight: bold;
+}
+
+.botonDesencriptar {
   color: var(--azulOscuro);
   background-color: white;
 }
-.botonEncriptar, .botonDesencriptar, .botonCopiar{
+
+.botonDesencriptar:hover,
+.botonCopiar:hover {
+  background-color: var(--grisClaro);
+}
+
+.botonDesencriptar:active,
+.botonCopiar:active {
+  color: #343A40;
+  border-color: #343A40;
+  font-weight: bold;
+}
+
+.botonCopiar {
+  color: var(--azulOscuro);
+  background-color: white;
+}
+
+.botonEncriptar,
+.botonDesencriptar {
   width: 50%;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--azulOscuro);
+}
+
+.botonCopiar {
+  width: 100%;
   padding: 2rem;
   border-radius: 1.5rem;
   border: 1px solid var(--azulOscuro);
@@ -132,14 +180,16 @@ footer {
   color: white;
   box-shadow: 0px 0px 32px 10px rgba(0, 0, 0, 0.20);
 }
-footer h2{
+
+footer h2 {
   font-size: 1rem;
   font-weight: 400;
 }
 
 .imagenPerfil img {
-  width: 8rem;
-  padding: 1rem;
+  width: 5rem;
+  margin: 1rem;
+  border: 2px solid white;
   border-radius: 50%;
 }
 
@@ -148,24 +198,102 @@ footer h2{
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-
 }
 
 .infoLinkedin img {
-  width: 3rem;
+  width: auto;
   padding: 0 0.75rem;
 }
-.infoLinkedin a{
+
+.infoLinkedin a {
   color: white;
   text-decoration: none;
   font-weight: 600;
   transition: 0.2s;
 }
-.infoLinkedin a:hover{
+
+.infoLinkedin a:hover {
   font-size: 105%
-  
 }
-.infoLinkedin a:visited{
+
+.infoLinkedin a:visited {
   color: white;
   text-decoration: none;
+}
+
+/*Celular*/
+@media screen and (max-width:375px) {
+
+  header {
+    justify-content: center;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .Encriptado {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .Desencriptado {
+    width: auto;
+    padding: 1rem;
+  }
+
+  .mensaje {
+    background-image: none;
+    width: auto;
+  }
+
+  .botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .botonEncriptar,
+  .botonDesencriptar {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--azulOscuro);
+  }
+
+}
+
+/*Tablet*/
+@media screen and (max-width:768px) and (min-width:376px) {
+  main {
+    flex-direction: column;
+  }
+
+  header {
+    align-items: flex-end;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .Encriptado {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .Desencriptado {
+    width: auto;
+    padding: 2rem;
+  }
+
+  .mensaje {
+    background-image: none;
+    width: 100%;
+    height: 100%;
+  }
 }
